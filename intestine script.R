@@ -1,4 +1,3 @@
-#20190502 
 Packages <- c("dplyr", "ggplot2", "rstan", "dada2", "DECIPHER", "DESeq2", "ggplot2", "gplots", "gridExtra", "latticeExtra", "permute", "phangorn", "phyloseq", "shiny", "vegan", "structSSI")
 lapply(Packages, library, character.only = TRUE)
 
