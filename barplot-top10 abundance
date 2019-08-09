@@ -1,0 +1,18 @@
+#create barplot for top 10 abundance
+#import dataset
+
+#phylum top 10
+phylum10<-ggplot(data=phylum_top10, aes(x=Group, 
+                              y=Abundance,
+                              fill = Phylum))
+phylum10 + geom_bar(stat = "identity",width = 0.6,      # how wide (0-1) the bars are
+                 color = "black",  # the outline color of the bars
+                 size = 0.2)+ggtitle(label = "Phylum Level")+facet_wrap(~Tissue+Time, scales="free_x")+theme_grey(base_size = 18) 
+
+#genus top 10
+genus10<-ggplot(data=genus_top10, aes(x=Group, 
+                                        y=Abundance,
+                                        fill = Genus))
+genus10 + geom_bar(stat = "identity",width = 0.6,      # how wide (0-1) the bars are
+                    color = "black",  # the outline color of the bars
+                    size = 0.2)+ggtitle(label = "Genus Level")+facet_wrap(~Tissue+Time, scales="free_x")+theme_grey(base_size = 18) 
