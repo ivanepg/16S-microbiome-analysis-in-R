@@ -1,0 +1,39 @@
+#Beta diversity and anosim
+
+
+#beta diversity
+
+mds.bray.logw1 <- ordinate(ps.propw1, method = "MDS", distance = "bray")
+plot_ordination(ps.propw1, mds.bray.logw1, color="Grp", title="MDS Bray")
+w1<-plot_ordination(ps.propw1, mds.bray.logw1, color="Grp", shape="Grp")+scale_color_manual(values = c("blue","red"))+theme_bw(base_size = 20)+geom_point(size=5) + ggtitle("Intestine W1 Bray")
+w1
+
+mds.bray.logw4 <- ordinate(ps.propw4, method = "MDS", distance = "bray")
+plot_ordination(ps.propw4, mds.bray.logw4, color="Grp", title="MDS Bray")
+w4<-plot_ordination(ps.propw4, mds.bray.logw4, color="Grp", shape="Grp")+scale_color_manual(values = c("blue","red"))+theme_bw(base_size = 20)+geom_point(size=5) + ggtitle("Intestine W4 Bray")
+w4
+
+mds.bray.logw5 <- ordinate(ps.propw5, method = "MDS", distance = "bray")
+plot_ordination(ps.propw5, mds.bray.logw5, color="Grp", title="MDS Bray")
+w5<-plot_ordination(ps.propw5, mds.bray.logw5, color="Grp", shape="Grp")+scale_color_manual(values = c("blue","red"))+theme_bw(base_size = 20)+geom_point(size=5) + ggtitle("Intestine W5 Bray")
+w5
+
+#anosim
+
+ps_anosim1 = read.csv("ps_intestineweek1.csv", header= TRUE)
+ps_com1 = ps_anosim1[,4:ncol(ps_anosim1)]
+ps_m_com1 = as.matrix(ps_com1)
+ps_ano1 = anosim(ps_m_com1, ps_anosim1$Sample, distance = "bray", permutations = 9999)
+ps_ano1
+
+ps_anosim2 = read.csv("ps_intestineweek4.csv", header= TRUE)
+ps_com2 = ps_anosim2[,4:ncol(ps_anosim2)]
+ps_m_com2 = as.matrix(ps_com2)
+ps_ano2 = anosim(ps_m_com2, ps_anosim2$Sample, distance = "bray", permutations = 9999)
+ps_ano2
+
+ps_anosim3 = read.csv("ps_intestineweek5.csv", header= TRUE)
+ps_com3 = ps_anosim3[,4:ncol(ps_anosim3)]
+ps_m_com3 = as.matrix(ps_com3)
+ps_ano3 = anosim(ps_m_com3, ps_anosim3$Sample, distance = "bray", permutations = 9999)
+ps_ano3
